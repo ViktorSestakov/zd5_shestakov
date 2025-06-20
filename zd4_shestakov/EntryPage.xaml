@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="zd4_shestakov.EntryPage"
+             Title="Welcome"
+             StyleClass="page">
+
+    <ContentPage.Resources>
+        <StyleSheet Source="/Style.css" />
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <StackLayout Padding="30" Spacing="20">
+            <Label Text="Welcome" 
+                   StyleClass="header" />
+
+            <Frame StyleClass="inputFrame">
+                <Entry x:Name="usernameEntry" 
+                       Placeholder="Username" 
+                       StyleClass="inputField"/>
+            </Frame>
+
+            <Frame StyleClass="inputFrame">
+                <Entry x:Name="passwordEntry" 
+                       Placeholder="Password" 
+                       StyleClass="inputField"
+                       IsPassword="True"/>
+            </Frame>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Orientation="Horizontal" Spacing="10">
+                    <CheckBox x:Name="rememberMeCheckbox" />
+                    <Label Text="Remember me" 
+                           StyleClass="smallText" 
+                           VerticalOptions="Center" />
+                </StackLayout>
+
+                <Label Grid.Column="1" 
+                       Text="Forgot password?" 
+                       StyleClass="linkText" 
+                       HorizontalOptions="End"
+                       VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnForgotPasswordTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+
+            <Button Text="Sign in" 
+                    StyleClass="primaryButton" 
+                    Clicked="OnSignInClicked" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
